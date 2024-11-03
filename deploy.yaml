@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prt-deployment
+  labels:
+    app: prt
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: prt
+  template:
+    metadata:
+      labels:
+        app: prt
+    spec:
+      containers:
+      - name: prt
+        image: veeru13055/prt
+        ports:
+        - containerPort: 80
